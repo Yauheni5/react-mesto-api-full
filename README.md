@@ -4,3 +4,6 @@
 
 Публичный IP-адрес http://51.250.105.202/ сервера
 домен **\_\_\_**, по которому к нему можно обратиться.
+IP http://51.250.105.202/
+Frontend https://yauheni.nomoredomains.club/
+Backend https://api.yauheni.nomoredomains.club/
