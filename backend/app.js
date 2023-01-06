@@ -16,7 +16,7 @@ const app = express();
 
 app.use(cors(
   {
-    Origin: 'https://api.yauheni.nomoredomains.club/',
+    Origin: 'https://yauheni.nomoredomains.club/',
   },
 ));
 
