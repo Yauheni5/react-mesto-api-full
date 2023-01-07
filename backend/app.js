@@ -15,7 +15,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cors({
-  Origin: 'https://yauheni.nomoredomains.club/',
+  Origin: 'https://api.yauheni.nomoredomains.club/',
 }));
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
