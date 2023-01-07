@@ -6,7 +6,7 @@ import mogilevImg from '../images/mogilev.jpg';
 import minskImg from '../images/minsk.jpg';
 
 export const optionsApi = {
-  url: 'https://api.yauheni.nomoredomains.club',
+  url: 'http://localhost:3000',
 }
 
 export const initialCards = [{
