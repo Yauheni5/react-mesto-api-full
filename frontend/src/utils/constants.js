@@ -21,15 +21,16 @@ export const optionsAuthApi = {
 } */
 
 export const optionsApi = {
-  url: 'http://localhost:3030',
+  url: 'https://api.yauheni.nomoredomains.club',
+ /*  url: 'http://localhost:3000' */
 }
 
-export const optionsAuthApi = {
+/* export const optionsAuthApi = {
   url: 'http://localhost:3030',
   headers: {
     'Content-Type': 'application/json',
   }
-}
+} */
 
 export const initialCards = [{
     name: 'Брест',
