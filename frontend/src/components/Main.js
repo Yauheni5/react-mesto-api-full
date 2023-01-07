@@ -20,7 +20,7 @@ export default function Main({
         onCardClick={onCardClick}
         onCardLike={onCardLike}
         onCardDelete={onCardDelete}
-        key={ item._id }
+        key={ item._id}
       />
     );
   });

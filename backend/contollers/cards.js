@@ -15,7 +15,7 @@ module.exports.createCard = async (req, res, next) => {
     if (!card) {
       return next(new NotFoundError());
     }
-    return res.status(statusCode.OK).send(card);
+    return res.status(statusCode.OK).send({ card });
   } catch (err) {
     return next(new InternalServerError({ message: 'Произошла ошибка' }));
   }
