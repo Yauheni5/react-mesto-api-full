@@ -10,7 +10,7 @@ const { urlRegex } = require('./constants/constants');
 const { NotFoundError } = require('./errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3030 } = process.env;
 
 const app = express();
 

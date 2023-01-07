@@ -5,8 +5,30 @@ import hrodnoImg from '../images/hrodno.jpg';
 import mogilevImg from '../images/mogilev.jpg';
 import minskImg from '../images/minsk.jpg';
 
+/* export const optionsApi = {
+  url: 'https://mesto.nomoreparties.co/v1/cohort-51',
+  headers: {
+    authorization: 'd4c4166d-7da1-41e5-9c12-6ada905232af',
+    'Content-Type': 'application/json'
+  }
+}
+
+export const optionsAuthApi = {
+  url: 'https://auth.nomoreparties.co',
+  headers: {
+    'Content-Type': 'application/json',
+  }
+} */
+
 export const optionsApi = {
-  url: 'http://localhost:3000',
+  url: 'http://localhost:3030',
+}
+
+export const optionsAuthApi = {
+  url: 'http://localhost:3030',
+  headers: {
+    'Content-Type': 'application/json',
+  }
 }
 
 export const initialCards = [{
