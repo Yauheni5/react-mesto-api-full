@@ -8,7 +8,8 @@ const auth = require('./middlewares/auth');
 const { urlRegex } = require('./constants/constants');
 const { NotFoundError } = require('./errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
+const { cors } = require('./middlewares/cors');
+
 
 const { PORT = 3000 } = process.env;
 
