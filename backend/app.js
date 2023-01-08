@@ -1,5 +1,5 @@
-const express = require('express');
 const cors = require('cors');
+const express = require('express');
 const mongoose = require('mongoose');
 const { errors, Joi, celebrate } = require('celebrate');
 const usersRoutes = require('./routes/users');
