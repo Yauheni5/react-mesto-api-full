@@ -1,7 +1,6 @@
-/* const allowedCors = [
+const allowedCors = [
   'http://yauheni.nomoredomains.club',
   'https://yauheni.nomoredomains.club',
-  'yauheni.nomoredomains.club',
   'http://localhost:3001',
   'https://localhost:3001',
   'http://localhost:3000',
@@ -10,7 +9,7 @@
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
-const cors = (req, res, next) => {
+function cors(req, res, next) {
   const { origin } = req.headers;
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
@@ -21,9 +20,8 @@ const cors = (req, res, next) => {
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
-    res.end();
+    return res.end();
   }
-  next();
-};
-module.exports ={ cors }
- */
+  return next();
+}
+module.exports = { cors };

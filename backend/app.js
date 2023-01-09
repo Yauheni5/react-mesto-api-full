@@ -1,4 +1,3 @@
-const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors, Joi, celebrate } = require('celebrate');
@@ -9,23 +8,22 @@ const auth = require('./middlewares/auth');
 const { urlRegex } = require('./constants/constants');
 const { NotFoundError } = require('./errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { cors } = require('./middlewares/cors');
 
-const { PORT = 3001 } = process.env;
-
+const { PORT = 3000 } = process.env;
 const app = express();
 
+app.use(cors);
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-app.use(cors());
 app.use(requestLogger); // подключаем логгер запросов
 
-/* app.get('/crash-test', () => {
+app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); */
+});
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({

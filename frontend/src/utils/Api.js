@@ -4,7 +4,6 @@ import { optionsApi } from "./constants";
 class Api {
   constructor(options) {
     this.url = options.url;
-    /* this._headers = options.headers; */
   }
 
   _checkResponseError = (res) => {
