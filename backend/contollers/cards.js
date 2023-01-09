@@ -9,9 +9,9 @@ const {
 
 module.exports.createCard = async (req, res, next) => {
   try {
-    const ownerId = req.user._id;
+    const cardOwner = req.user;
     const { name, link } = req.body;
-    const card = await Card.create({ name, link, owner: ownerId });
+    const card = await Card.create({ name, link, owner: cardOwner });
     if (!card) {
       return next(new NotFoundError());
     }

@@ -1,39 +1,6 @@
-import brestImg from '../images/brest.jpg';
-import vitebskImg from '../images/vitebsk.jpg';
-import homelImg from '../images/gomel.jpg';
-import hrodnoImg from '../images/hrodno.jpg';
-import mogilevImg from '../images/mogilev.jpg';
-import minskImg from '../images/minsk.jpg';
-
 export const optionsApi = {
   url: 'https://api.yauheni.nomoredomains.club',
 }
-
-export const initialCards = [{
-    name: 'Брест',
-    link: brestImg
-  },
-  {
-    name: 'Витебск',
-    link: vitebskImg
-  },
-  {
-    name: 'Гомель',
-    link: homelImg
-  },
-  {
-    name: 'Гродно',
-    link: hrodnoImg
-  },
-  {
-    name: 'Могилев',
-    link: mogilevImg
-  },
-  {
-    name: 'Минск',
-    link: minskImg
-  }
-];
 
 export const selectorsUser = {
   name: '.profile__user',
