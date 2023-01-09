@@ -21,7 +21,7 @@ export const optionsAuthApi = {
 } */
 
 export const optionsApi = {
-  url: 'http://api.yauheni.nomoredomains.club',
+  url: 'https://api.yauheni.nomoredomains.club',
   /* url: 'http://localhost:3000' */
 }
 
