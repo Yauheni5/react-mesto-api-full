@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const mongoose = require('mongoose');
 const { errors, Joi, celebrate } = require('celebrate');
 const usersRoutes = require('./routes/users');
@@ -9,16 +8,17 @@ const auth = require('./middlewares/auth');
 const { urlRegex } = require('./constants/constants');
 const { NotFoundError } = require('./errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-/* const { cors } = require('./middlewares/cors'); */
+const { cors } = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
 
+app.use(cors);
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(requestLogger); // подключаем логгер запросов
-app.use(cors());
+
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
