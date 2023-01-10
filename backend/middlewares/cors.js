@@ -1,4 +1,4 @@
-const allowedCors = [
+/* const allowedCors = [
   'http://yauheni.nomoredomains.club',
   'https://yauheni.nomoredomains.club',
   'http://localhost:3001',
@@ -24,4 +24,4 @@ function cors(req, res, next) {
   }
   return next();
 }
-module.exports = { cors };
+module.exports = { cors }; */
