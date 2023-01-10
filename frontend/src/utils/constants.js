@@ -1,5 +1,5 @@
 export const optionsApi = {
-  url: 'http://api.yauheni.nomoredomains.club',
+  url: 'https://api.yauheni.nomoredomains.club',
 }
 
 export const selectorsUser = {
