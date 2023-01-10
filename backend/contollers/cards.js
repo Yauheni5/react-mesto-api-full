@@ -17,22 +17,23 @@ module.exports.createCard = async (req, res, next) => {
     }
     return res.status(statusCode.OK).send({ data: card });
   } catch (err) {
-    return next(new InternalServerError({ message: 'Произошла ошибка' }));
+    return next(new InternalServerError({ message: 'На сервере произошла ошибка' }));
   }
 };
 
 module.exports.deleteCard = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    const card = await Card.findById(req.params._id);
-    if (!card) {
-      return next(new NotFoundError());
-    }
-    if (card.owner.toString() === userId) {
-      await Card.deleteOne(card);
-      return res.status(statusCode.OK).send({ message: `Карточка ${card.name} удалена` });
-    }
-    return next(new ForbiddenError());
+    return await Card.findByIdAndRemove(req.params._id)
+      .then((cardDeleting) => {
+        if (!cardDeleting) {
+          return next(new NotFoundError());
+        }
+        if (cardDeleting.owner.toString() === userId) {
+          return res.status(statusCode.OK).send({ message: `Карточка ${cardDeleting.name} удалена` });
+        }
+        return next(new ForbiddenError());
+      });
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequestError());
