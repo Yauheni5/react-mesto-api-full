@@ -24,7 +24,7 @@ class Api {
       .then(this._checkResponseError)
   }
 
-  setUserInfoApi(userData, token) {
+  setUserInfoApi({ name, about }, token) {
     return fetch(`${this.url}/users/me`, {
         method: 'PATCH',
         headers: {
@@ -32,8 +32,8 @@ class Api {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: userData.name,
-          about: userData.about
+          name: name,
+          about: about
         })
       })
       .then(this._checkResponseError)

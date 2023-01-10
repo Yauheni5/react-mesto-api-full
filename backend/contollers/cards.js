@@ -9,13 +9,13 @@ const {
 
 module.exports.createCard = async (req, res, next) => {
   try {
-    const cardOwner = req.user;
+    const cardOwnerId = req.user._id;
     const { name, link } = req.body;
-    const card = await Card.create({ name, link, owner: cardOwner });
+    const card = await Card.create({ name, link, owner: cardOwnerId });
     if (!card) {
       return next(new NotFoundError());
     }
-    return res.status(statusCode.OK).send(card);
+    return res.status(statusCode.OK).send({ data: card });
   } catch (err) {
     return next(new InternalServerError({ message: 'Произошла ошибка' }));
   }
@@ -44,7 +44,7 @@ module.exports.deleteCard = async (req, res, next) => {
 module.exports.getCards = async (req, res, next) => {
   try {
     const card = await Card.find({}).populate(['owner', 'likes']);
-    return res.status(statusCode.OK).send(card);
+    return res.status(statusCode.OK).send({ data: card });
   } catch (err) {
     return next(new InternalServerError());
   }

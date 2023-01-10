@@ -62,7 +62,7 @@ module.exports.getUserInfo = async (req, res, next) => {
     if (!user) {
       return next(new NotFoundError());
     }
-    return res.status(statusCode.OK).send(user);
+    return res.status(statusCode.OK).send({ data: user });
   } catch (err) {
     return next(new InternalServerError());
   }
@@ -74,7 +74,7 @@ module.exports.findUser = async (req, res, next) => {
     if (!user) {
       return next(new NotFoundError());
     }
-    return res.status(statusCode.OK).send(user);
+    return res.status(statusCode.OK).send({ data: user });
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequestError());
@@ -86,7 +86,7 @@ module.exports.findUser = async (req, res, next) => {
 module.exports.getUsers = async (req, res, next) => {
   try {
     const user = await User.find({});
-    return res.status(statusCode.OK).send(user);
+    return res.status(statusCode.OK).send({ data: user });
   } catch (err) {
     return next(new InternalServerError());
   }
@@ -104,7 +104,7 @@ module.exports.updateProfile = async (req, res, next) => {
     if (!user) {
       return next(new NotFoundError());
     }
-    return res.status(statusCode.OK).send(user);
+    return res.status(statusCode.OK).send({ data: user });
   } catch (err) {
     return next(new InternalServerError());
   }
@@ -122,7 +122,7 @@ module.exports.updateAvatar = async (req, res, next) => {
     if (!user) {
       return next(new NotFoundError());
     }
-    return res.status(statusCode.OK).send(user);
+    return res.status(statusCode.OK).send({ data: user });
   } catch (err) {
     return next(new InternalServerError());
   }

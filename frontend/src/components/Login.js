@@ -25,7 +25,6 @@ export default function Login({ onRegisterUser }) {
       e,
       setEmailTextInputError,
       setIsInputEmailValid,
-      onRegisterUser
     );
     setEmail(e.target.value);
   }

@@ -12,7 +12,6 @@ export default function Main({
   cards,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
-
   const cardsElements = cards.map((item) => {
     return (
       <Card

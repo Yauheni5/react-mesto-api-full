@@ -42,8 +42,8 @@ function App() {
       api
         .getAllPromise(token)
         .then(([userInfo, cardsFromServer]) => {
-          setCurrentUser(userInfo);
-          setCards(cardsFromServer.reverse());
+          setCurrentUser(userInfo.data);
+          setCards(cardsFromServer.data.reverse());
         })
         .catch((err) => {
           console.log(err); // выведем ошибку в консоль
@@ -109,8 +109,8 @@ function App() {
         .then((res) => {
           setIsRegisteredUser(true);
           setLoggedIn(true);
-          setLoginUser(res.email);
-          setCurrentUser(res)
+          setLoginUser(res.data.email);
+          setCurrentUser(res.data)
         })
         .catch((err) => {
           console.log(err); // выведем ошибку в консоль
@@ -186,11 +186,11 @@ function App() {
     setSelectedCard(cardData);
   }
 
-  function handleUpdateUser(userData) {
+  function handleUpdateUser({ name, about }) {
     api
-      .setUserInfoApi(userData, token)
+      .setUserInfoApi({ name, about }, token)
       .then((userInfo) => {
-        setCurrentUser(userInfo);
+        setCurrentUser(userInfo.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -201,7 +201,7 @@ function App() {
     api
       .setUserAvatarApi(srcAvatar, token)
       .then((userInfo) => {
-        setCurrentUser(userInfo);
+        setCurrentUser(userInfo.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -212,7 +212,7 @@ function App() {
     api
       .addCard(dataCard, token)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
